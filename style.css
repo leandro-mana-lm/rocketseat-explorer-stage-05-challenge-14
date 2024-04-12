@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #ffffff;
+  --card-background: #e1e1e6;
+  --selected-card: #02799d;
+  --text-color: #323239;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background);
+
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+#app {
+  display: grid;
+  place-items: center;
+
+  height: 100vh;
+
+  margin-inline: auto;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+
+  font-size: 10rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.hide {
+  display: none;
+}
+
+.controls button {
+  background-color: transparent;
+
+  border: none;
+
+  color: var(--text-color);
+  font-size: 5rem;
+}
+
+.controls > button:hover {
+  cursor: pointer;
+}
+
+.sounds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+}
+
+.card {
+  border: none;
+  border-radius: 2.4rem;
+  outline: none;
+
+  height: 14rem;
+  width: 12rem;
+
+  transition: filter 0.5s;
+}
+
+.card:hover {
+  cursor: pointer;
+
+  filter: brightness(0.9);
+}
+
+.card > svg {
+  fill: var(--text-color);
+}
+
+.card.selected {
+  background-color: var(--selected-card);
+}
+
+.card.selected > svg {
+  fill: var(--background);
+}
+
+.sr-only {
+  border: none;
+
+  height: 1px;
+  width: 1px;
+
+  margin: -1px;
+  padding: 0;
+
+  position: absolute;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #app {
+    grid-template-columns: repeat(2, 1fr);
+
+    max-width: 90%;
+  }
+
+  .time {
+    font-size: 12.617rem;
+  }
+
+  .controls {
+    gap: 4rem;
+  }
+
+  .sounds {
+    gap: 3.2rem;
+  }
+
+  .card {
+    height: 15.2rem;
+    width: 13.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #app {
+    max-width: 70%;
+  }
+}
